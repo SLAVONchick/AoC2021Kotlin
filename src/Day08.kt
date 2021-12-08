@@ -94,6 +94,13 @@ class Display private constructor() {
                 if (!success) {
                     if (iterCount > 7)
                         break
+                    
+                    // here we need to swap some of the recently set characters with each other
+                    // till every signal in signals makes sense (display.isNumber)
+                    // and there three of such pairs of characters, so we represent them
+                    // as a binary 7 (111), so that at 001 we swap the first pair,
+                    // at 010 we swap first pair back and second pair forward, at 011 we swap first pair
+                    // forward again and so on, till we have tried every combination of those 
                     when (iterCount) {
                         // 001
                         1 -> {
